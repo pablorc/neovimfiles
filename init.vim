@@ -14,6 +14,7 @@ Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tpope/vim-dispatch'
 
 call plug#end()
 
