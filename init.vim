@@ -12,6 +12,7 @@ Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-eunuch'
 
 call plug#end()
 
