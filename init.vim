@@ -17,6 +17,10 @@ Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-dispatch'
 Plug 'pablorc/vim-karma'
 
+"Plug 'Townk/vim-autoclose'
+"Plug 'tpope/vim-surround'
+"Plug 'jeetsukumaran/vim-buffergator'
+
 call plug#end()
 
 let mapleader = "ñ"
