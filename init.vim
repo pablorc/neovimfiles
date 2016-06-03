@@ -13,9 +13,11 @@ Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
-Plug 'jlstr/vim-nerdtree-tabs'
+Plug 'jistr/vim-nerdtree-tabs'
 
 call plug#end()
+
+let mapleader = "ñ"
 
 "Airline
 let g:airline_powerline_fonts= 1
@@ -28,10 +30,10 @@ set background=dark
 
 "CtrlP
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'] "Exclude files from .gitignore
-let g:ctrlp_map = '<c-p>'
+map <leader>t :CtrlP<CR>
 
 "Neomake
 autocmd! BufWritePost,BufEnter * Neomake
 
-"Nerdtree
-map <C-N> :NERDTreeToggle<CR>
+"Nerdtree & Nerdtree-tabs
+silent! nmap <silent> <Leader>p <plug>NERDTreeTabsToggle<CR>
