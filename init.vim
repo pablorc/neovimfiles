@@ -9,6 +9,8 @@ Plug 'freeo/vim-kalisi'
 Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim'
 Plug 'neomake/neomake'
+Plug 'scrooloose/nerdtree'
+Plug 'rking/ag.vim'
 
 call plug#end()
 
@@ -28,3 +30,5 @@ let g:ctrlp_map = '<c-p>'
 "Neomake
 autocmd! BufWritePost,BufEnter * Neomake
 
+"Nerdtree
+map <C-N> :NERDTreeToggle<CR>
