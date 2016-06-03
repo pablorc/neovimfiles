@@ -18,6 +18,7 @@ Plug 'jistr/vim-nerdtree-tabs'
 call plug#end()
 
 let mapleader = "ñ"
+set number
 
 "Airline
 let g:airline_powerline_fonts= 1
