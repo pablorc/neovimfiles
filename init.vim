@@ -15,6 +15,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-dispatch'
+Plug 'pablorc/vim-karma'
 
 call plug#end()
 
@@ -39,3 +40,7 @@ autocmd! BufWritePost,BufEnter * Neomake
 
 "Nerdtree & Nerdtree-tabs
 silent! nmap <silent> <Leader>p <plug>NERDTreeTabsToggle<CR>
+
+map <Leader>kt :call RunCurrentSpecFile()<CR>
+map <Leader>ks :call RunNearestSpec()<CR>
+map <Leader>ka :call RunAllSpecs()<CR>
