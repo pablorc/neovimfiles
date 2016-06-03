@@ -13,6 +13,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-eunuch'
+Plug 'jlstr/vim-nerdtree-tabs'
 
 call plug#end()
 
