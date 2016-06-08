@@ -48,3 +48,6 @@ silent! nmap <silent> <Leader>p <plug>NERDTreeTabsToggle<CR>
 map <Leader>kt :call RunCurrentSpecFile()<CR>
 map <Leader>ks :call RunNearestSpec()<CR>
 map <Leader>ka :call RunAllSpecs()<CR>
+
+"Remove whitespaces after save
+autocmd BufWritePre * :%s/\s\+$//e
