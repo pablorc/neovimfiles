@@ -16,6 +16,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'jistr/vim-nerdtree-tabs'
 Plug 'tpope/vim-dispatch'
 Plug 'pablorc/vim-karma'
+Plug 'terryma/vim-multiple-cursors'
 
 "Plug 'Townk/vim-autoclose'
 "Plug 'tpope/vim-surround'
