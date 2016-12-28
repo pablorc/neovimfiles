@@ -5,21 +5,26 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'freeo/vim-kalisi'
 
-"Features
-Plug 'tpope/vim-sensible'
+"IDE
 Plug 'kien/ctrlp.vim'
-Plug 'neomake/neomake'
 Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-eunuch'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'tpope/vim-dispatch'
-Plug 'pablorc/vim-karma'
 Plug 'terryma/vim-multiple-cursors'
 
 "Syntax
 Plug 'mustache/vim-mustache-handlebars'
+
+"VCS
+Plug 'tpope/vim-fugitive'
+
+"Other features
+Plug 'tpope/vim-sensible'
+Plug 'neomake/neomake'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-dispatch'
+Plug 'pablorc/vim-karma'
+Plug 'mattn/emmet-vim'
 
 "Plug 'Townk/vim-autoclose'
 "Plug 'tpope/vim-surround'
