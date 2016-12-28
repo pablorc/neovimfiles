@@ -18,6 +18,9 @@ Plug 'tpope/vim-dispatch'
 Plug 'pablorc/vim-karma'
 Plug 'terryma/vim-multiple-cursors'
 
+"Syntax
+Plug 'mustache/vim-mustache-handlebars'
+
 "Plug 'Townk/vim-autoclose'
 "Plug 'tpope/vim-surround'
 "Plug 'jeetsukumaran/vim-buffergator'
