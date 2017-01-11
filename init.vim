@@ -14,6 +14,8 @@ Plug 'terryma/vim-multiple-cursors'
 
 "Syntax
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'yaymukund/vim-rabl'
+
 
 "VCS
 Plug 'tpope/vim-fugitive'
