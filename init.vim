@@ -10,6 +10,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'rking/ag.vim'
 Plug 'jistr/vim-nerdtree-tabs'
+Plug 'vim-syntastic/syntastic'
 Plug 'terryma/vim-multiple-cursors'
 
 "Syntax
@@ -59,6 +60,9 @@ silent! nmap <silent> <Leader>p <plug>NERDTreeTabsToggle<CR>
 map <Leader>kt :call RunCurrentSpecFile()<CR>
 map <Leader>ks :call RunNearestSpec()<CR>
 map <Leader>ka :call RunAllSpecs()<CR>
+
+"Syntastic
+let g:syntastic_javascript_checkers = ['jshint']
 
 "Remove whitespaces after save
 autocmd BufWritePre * :%s/\s\+$//e
