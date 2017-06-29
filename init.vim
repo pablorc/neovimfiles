@@ -89,3 +89,5 @@ set si
 
 "Wrap lines
 set wrap
+
+set mouse=a
