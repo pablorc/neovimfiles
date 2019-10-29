@@ -1,93 +1,91 @@
 call plug#begin()
 
 "Aesthetics
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'freeo/vim-kalisi'
+" Plug 'rakr/vim-two-firewatch'
+Plug 'arcticicestudio/nord-vim'
 
 "IDE
-Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'rking/ag.vim'
-Plug 'jistr/vim-nerdtree-tabs'
-Plug 'vim-syntastic/syntastic'
-Plug 'terryma/vim-multiple-cursors'
-
-"Syntax
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'yaymukund/vim-rabl'
-
+" Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 "VCS
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 "Other features
-Plug 'tpope/vim-sensible'
-Plug 'neomake/neomake'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-dispatch'
-Plug 'pablorc/vim-karma'
-Plug 'mattn/emmet-vim'
-
-"Plug 'Townk/vim-autoclose'
-"Plug 'tpope/vim-surround'
-"Plug 'jeetsukumaran/vim-buffergator'
 
 call plug#end()
 
+"----------------------------------------------------------------------------------
+"---------------------------     BASE CONFIGURATION     ---------------------------
+"----------------------------------------------------------------------------------
 let mapleader = "ñ"
 set number
 
-"Airline
-let g:airline_powerline_fonts= 1
-let g:airline_theme='kalisi'
-let g:airline#extensions#tabline#enabled = 1
-
-"Colorscheme
-colorscheme kalisi
-set background=dark
-
-"CtrlP
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'] "Exclude files from .gitignore
-map <leader>t :CtrlP<CR>
-
-"Neomake
-autocmd! BufWritePost,BufEnter * Neomake
-
-"Nerdtree & Nerdtree-tabs
-silent! nmap <silent> <Leader>p <plug>NERDTreeTabsToggle<CR>
-
-map <Leader>kt :call RunCurrentSpecFile()<CR>
-map <Leader>ks :call RunNearestSpec()<CR>
-map <Leader>ka :call RunAllSpecs()<CR>
-
-"Syntastic
-let g:syntastic_javascript_checkers = ['jshint']
-
-"Remove whitespaces after save
+" Remove whitespaces after save
 autocmd BufWritePre * :%s/\s\+$//e
 
-"Use spaces instead of tabs
+" Use spaces instead of tabs
 set expandtab
 
-"Be smart when using tabs
+" Be smart when using tabs
 set smarttab
 
-"1 tab == 4 spaces
+" 1 tab == 4 spaces
 set shiftwidth=2
 set tabstop=2
 
-"Linebreak on 500 characters
+" Linebreak on 500 characters
 set lbr
 set tw=500
 
-"Auto indent
+" Auto indent
 set ai
 
-"Smart indent
+" Smart indent
 set si
 
-"Wrap lines
+" Wrap lines
 set wrap
 
 set mouse=a
+
+" Regexps
+noremap <Leader>r :%s:::g<Left><Left><Left>
+
+" Colorscheme
+colorscheme nord
+
+"----------------------------------------------------------------------------------
+"---------------------------    PLUGIN CONFIGURATION    ---------------------------
+"----------------------------------------------------------------------------------
+
+"-------------------------------------- FZF --------------------------------------
+set rtp+=~/.fzf " Add fzf
+nnoremap <leader>f :FZF<CR>
+inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+"----------------------------------------------------------------------------------
+"---------------------------            RUBY            ---------------------------
+"----------------------------------------------------------------------------------
+
+" Run rubocop on save .rb file
+autocmd BufWritePost *.rb silent execute "!rubocop -a %"
+
+"----------------------------------------------------------------------------------
+"---------------------------           DOCKER           ---------------------------
+"----------------------------------------------------------------------------------
+
+" Execute rspec on current file
+nnoremap <leader>c :tabnew % \| te docker-compose run web bash<cr>
+
+"----------------------------------------------------------------------------------
+"---------------------------          TERMINAL          ---------------------------
+"----------------------------------------------------------------------------------
+
+if has('nvim')
+  " Escape mode in terminal
+  tnoremap <esc> <c-\><c-n>
+  tnoremap <c-v><esc> <esc>
+endif
+
