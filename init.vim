@@ -1,18 +1,20 @@
 call plug#begin()
 
 "Aesthetics
-" Plug 'rakr/vim-two-firewatch'
-Plug 'arcticicestudio/nord-vim'
+Plug 'rakr/vim-two-firewatch'
 
 "IDE
-" Plug 'kien/ctrlp.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'preservim/nerdtree'
+Plug 'pechorin/any-jump.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'mileszs/ack.vim'
+"Plug 'kien/ctrlp.vim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "VCS
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-
-"Other features
 
 call plug#end()
 
@@ -20,7 +22,6 @@ call plug#end()
 "---------------------------     BASE CONFIGURATION     ---------------------------
 "----------------------------------------------------------------------------------
 let mapleader = "ñ"
-set number
 
 " Remove whitespaces after save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -39,22 +40,22 @@ set tabstop=2
 set lbr
 set tw=500
 
-" Auto indent
-set ai
-
-" Smart indent
-set si
-
-" Wrap lines
-set wrap
-
-set mouse=a
+set ai                    " Auto indent
+set si                    " Smart indent
+set wrap                  " Wrap lines
+set mouse=a               " Mouse
+set number relativenumber " Hybrid relative line numbers
 
 " Regexps
 noremap <Leader>r :%s:::g<Left><Left><Left>
 
 " Colorscheme
-colorscheme nord
+set termguicolors
+set background=dark " or light if you prefer the light version
+let g:two_firewatch_italics=1
+colo two-firewatch
+
+set diffopt=vertical
 
 "----------------------------------------------------------------------------------
 "---------------------------    PLUGIN CONFIGURATION    ---------------------------
@@ -63,14 +64,24 @@ colorscheme nord
 "-------------------------------------- FZF --------------------------------------
 set rtp+=~/.fzf " Add fzf
 nnoremap <leader>f :FZF<CR>
-inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+"inoremap <expr> <c-x><c-k> fzf#vim#complete#word({'left': '15%'})
+
+let g:fzf_preview_window = 'right:50%'
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6  }  }
+
+
+"------------------------------------ NERDTREE ------------------------------------
+nnoremap <leader>n :NERDTreeFocus<CR>
+
+"-------------------------------------- ACK ---------------------------------------
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 "----------------------------------------------------------------------------------
 "---------------------------            RUBY            ---------------------------
 "----------------------------------------------------------------------------------
 
 " Run rubocop on save .rb file
-autocmd BufWritePost *.rb silent execute "!rubocop -a %"
+" autocmd BufWritePost *.rb silent execute "!rubocop -a %"
 
 "----------------------------------------------------------------------------------
 "---------------------------           DOCKER           ---------------------------
