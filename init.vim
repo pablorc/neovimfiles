@@ -3,7 +3,8 @@ call plug#begin()
 "
 " Aesthetics
 "
-Plug 'ayu-theme/ayu-vim'
+"Plug 'ayu-theme/ayu-vim'
+Plug 'rebelot/kanagawa.nvim'
 "Plug 'rakr/vim-two-firewatch'
 
 "
@@ -13,6 +14,9 @@ Plug 'pechorin/any-jump.vim'
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multicursor
+Plug 'vim-test/vim-test'
+
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier',
@@ -82,8 +86,11 @@ set termguicolors
 "set background=dark " or light if you prefer the light version
 " let g:two_firewatch_italics=1
 " colo two-firewatch
-let ayucolor="mirage" " light, mirage, dark
-colo ayu
+"
+" AYU
+"let ayucolor="mirage" " light, mirage, dark
+"colo ayu
+colorscheme kanagawa
 
 set diffopt=vertical
 
@@ -112,7 +119,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column'
 "----------------------------------------------------------------------------------
 
 " Run rubocop on save .rb file
-" autocmd BufWritePost *.rb silent execute "!rubocop -a %"
+"autocmd BufWritePost *.rb silent execute "!rubocop -a %"
 
 "----------------------------------------------------------------------------------
 "---------------------------           DOCKER           ---------------------------
@@ -178,3 +185,13 @@ nmap <silent> gr <Plug>(coc-references)
 "------------------------------      COC-EXPLORER     -----------------------------
 "----------------------------------------------------------------------------------
 :nmap <leader>n <Cmd>CocCommand explorer<CR>
+
+"----------------------------------------------------------------------------------
+"------------------------------        VIM-TEST       -----------------------------
+"----------------------------------------------------------------------------------
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
