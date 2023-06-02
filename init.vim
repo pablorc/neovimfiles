@@ -15,7 +15,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'mg979/vim-visual-multi', {'branch': 'master'} " Multicursor
-Plug 'vim-test/vim-test'
+"Plug 'vim-test/vim-test'
 
 let g:coc_global_extensions = [
   \ 'coc-tsserver',
@@ -24,8 +24,9 @@ let g:coc_global_extensions = [
   \ 'coc-explorer',
   \ 'coc-go',
   \ 'coc-solargraph',
+  \ 'coc-json',
+  \ 'coc-graphql',
   \ ]
-"  \ 'coc-graphql',
 " Plug 'preservim/nerdtree'
 
 "
@@ -189,9 +190,18 @@ nmap <silent> gr <Plug>(coc-references)
 "----------------------------------------------------------------------------------
 "------------------------------        VIM-TEST       -----------------------------
 "----------------------------------------------------------------------------------
-nmap <silent> <leader>t :TestNearest<CR>
-nmap <silent> <leader>T :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+" nmap <silent> <leader>t :TestNearest<CR>
+" nmap <silent> <leader>T :TestFile<CR>
+" nmap <silent> <leader>a :TestSuite<CR>
+" nmap <silent> <leader>l :TestLast<CR>
+" nmap <silent> <leader>g :TestVisit<CR>
 
+" JAMBOTS
+vnoremap fu :<C-U>call TmuxSend()<CR>
+function! TmuxSend()
+  let l:tempfile = tempname()
+  let l:selected_text = getline("'<", "'>")
+  call writefile(l:selected_text, l:tempfile)
+  call system(['tmux', 'send-keys', '-t', 'tmux-ai', 'jambots chat -b jambot "$(cat ' . l:tempfile . ')"', 'Enter'])
+  call delete(l:tempfile)
+endfunction
