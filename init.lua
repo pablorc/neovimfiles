@@ -1,0 +1,3 @@
+require("pablorc")
+print "hello"
+
