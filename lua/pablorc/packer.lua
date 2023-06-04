@@ -21,4 +21,14 @@ return require('packer').startup(function(use)
 		  vim.cmd("colorscheme tokyonight-storm");
 	  end
   })
+
+  -- Treesitter
+  use({
+	  "nvim-treesitter/nvim-treesitter", 
+	  { run = ":TSUpdate" }
+  })
+
+  -- Undo tree
+  use("mbbill/undotree")
+
 end)

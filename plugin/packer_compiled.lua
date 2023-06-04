@@ -74,6 +74,11 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/Users/pablorc/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/pablorc/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -94,6 +99,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/pablorc/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
+  },
+  undotree = {
+    loaded = true,
+    path = "/Users/pablorc/.local/share/nvim/site/pack/packer/start/undotree",
+    url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/pablorc/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   }
 }
 
