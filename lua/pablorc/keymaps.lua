@@ -14,13 +14,13 @@ null_ls.setup({
 	},
 })
 
--- Neotree
+-- NeoTree
 vim.keymap.set("n", "<leader>ts", function()
-	vim.cmd(":Neotree")
+	vim.cmd(":NeoTreeShowToggle")
 end, { desc = "[T]ree [S]how Sidebar" })
 
 vim.keymap.set("n", "<leader>tf", function()
-	vim.cmd(":Neotree")
+	vim.cmd(":NeoTreeFloatToggle")
 end, { desc = "[T]ree [F]loat Sidebar" })
 
 -- Fugitive
