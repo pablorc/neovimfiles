@@ -2,12 +2,12 @@ return {
 
 	-- Colorscheme
 	{
-		'folke/tokyonight.nvim',
+		"folke/tokyonight.nvim",
 		priority = 1000,
 		lazy = false,
 		options = {},
 		config = function()
-			vim.cmd.colorscheme 'tokyonight-storm'
+			vim.cmd.colorscheme("tokyonight-storm")
 		end,
 	},
 
@@ -19,9 +19,10 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
-		}
+		},
 	},
 
+	-- LSP-like for non-LSP stuff (i.e: prettier
 	{
 		"jay-babu/mason-null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
@@ -33,7 +34,7 @@ return {
 			return {
 				-- A list of sources to install if they're not already installed.
 				-- This setting has no relation with the `automatic_installation` setting.
-				ensure_installed = { "prettier", },
+				ensure_installed = { "prettier" },
 				-- Run `require("null-ls").setup`.
 				-- Will automatically install masons tools based on selected sources in `null-ls`.
 				-- Can also be an exclusion list.
@@ -41,5 +42,8 @@ return {
 				automatic_installation = false,
 			}
 		end,
-	}
+	},
+
+	-- Undo tree
+	{ "mbbill/undotree" },
 }
