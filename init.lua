@@ -140,12 +140,12 @@ require('lazy').setup({
   require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
-  -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
+  -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/pablorc/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
   --    up-to-date with whatever is in the kickstart repo.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  { import = 'custom.plugins' },
+  { import = 'pablorc.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -477,9 +477,9 @@ cmp.setup {
   },
 }
 
--- My custom options
+-- My options
 --
-require("custom.set")
-require("custom.keymaps")
+require("pablorc.set")
+require("pablorc.keymaps")
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

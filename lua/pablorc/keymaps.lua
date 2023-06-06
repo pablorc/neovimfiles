@@ -18,4 +18,4 @@ null_ls.setup({
 vim.keymap.set('n', '<leader>ts', function() vim.cmd(":Neotree") end, { desc = '[T]ree [S]how Sidebar' })
 
 -- Fugitive
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = '[G]it [S]tatus' })
