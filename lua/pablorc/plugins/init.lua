@@ -31,7 +31,7 @@ return {
 		},
 	},
 
-	-- LSP-like for non-LSP stuff (i.e: prettier
+	-- LSP-like for non-LSP stuff (i.e: prettier)
 	{
 		"jay-babu/mason-null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
