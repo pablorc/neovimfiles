@@ -55,4 +55,11 @@ return {
 
 	-- Undo tree
 	{ "mbbill/undotree" },
+	-- Toogle Term
+	{
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		config = true, -- if no opts
+		--opts = {}, -- if no config
+	},
 }

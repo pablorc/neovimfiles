@@ -15,13 +15,13 @@ null_ls.setup({
 })
 
 -- NeoTree
-vim.keymap.set("n", "<leader>ts", function()
+vim.keymap.set("n", "<leader>fs", function()
 	vim.cmd(":NeoTreeShowToggle")
-end, { desc = "[T]ree [S]how Sidebar" })
+end, { desc = "[F]iletree [S]how Sidebar" })
 
 vim.keymap.set("n", "<leader>tf", function()
 	vim.cmd(":NeoTreeFloatToggle")
-end, { desc = "[T]ree [F]loat Sidebar" })
+end, { desc = "[F]iletree [F]loat Sidebar" })
 
 -- Fugitive
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[G]it [S]tatus" })
@@ -38,3 +38,23 @@ vim.keymap.set("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", {
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {
 	desc = "[U]ndotree",
 })
+-- Toogle term
+vim.keymap.set("n", "<leader>td", function()
+	vim.cmd(":ToggleTerm direction=horizontal")
+end, {
+	desc = "[T]erminal [D]own",
+})
+-- Toogle term
+vim.keymap.set("n", "<leader>tf", function()
+	vim.cmd(":ToggleTerm direction=float")
+end, {
+	desc = "[T]erminal [F]loat",
+})
+-- Toogle term
+vim.keymap.set("n", "<leader>tt", function()
+	vim.cmd(":ToggleTerm direction=float")
+end, {
+	desc = "[T]erminal [T]oggle Float",
+})
+-- Map <ESC> to exit terminal mode
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
