@@ -16,11 +16,11 @@ null_ls.setup({
 
 -- NeoTree
 vim.keymap.set("n", "<leader>fs", function()
-	vim.cmd(":Neotree toggle position=left")
+	vim.cmd(":Neotree toggle position=left reveal=true")
 end, { desc = "[F]iletree [S]how Sidebar" })
 
 vim.keymap.set("n", "<leader>ff", function()
-	vim.cmd(":Neotree toggle position=float")
+	vim.cmd(":Neotree toggle position=float reveal=true")
 end, { desc = "[F]iletree [F]loat Sidebar" })
 
 -- Fugitive
