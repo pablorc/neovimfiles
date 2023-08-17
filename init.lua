@@ -154,7 +154,6 @@ require("lazy").setup({
   --       Uncomment any of the lines below to enable them.
   require("kickstart.plugins.autoformat"),
   -- require 'kickstart.plugins.debug',
-
   -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/pablorc/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
   --    up-to-date with whatever is in the kickstart repo.
@@ -235,6 +234,9 @@ require("telescope").setup({
         ["<C-u>"] = false,
         ["<C-d>"] = false,
       },
+    },
+    file_ignore_patterns = {
+      "node_modules", "build", "dist", "yarn.lock", ".git",
     },
   },
 })
