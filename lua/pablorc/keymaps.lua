@@ -38,28 +38,3 @@ vim.keymap.set("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", {
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {
 	desc = "[U]ndotree",
 })
-
--- Toogle term
-vim.keymap.set("n", "<leader>td", function()
-	vim.cmd(":ToggleTerm direction=horizontal")
-end, {
-	desc = "[T]erminal [D]own",
-})
-vim.keymap.set("n", "<leader>tf", function()
-	vim.cmd(":ToggleTerm direction=float")
-end, {
-	desc = "[T]erminal [F]loat",
-})
-vim.keymap.set("n", "<leader>tt", function()
-	vim.cmd(":ToggleTerm direction=float")
-end, {
-	desc = "[T]erminal [T]oggle Float",
-})
-vim.keymap.set("n", "<leader>tc", function()
-	vim.cmd(":TermExec cmd='chat' direction=float")
-end, {
-	desc = "[T]erminal [C]hat Float",
-})
---
--- Map <ESC> to exit terminal mode
-vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
