@@ -1,19 +1,3 @@
--- null-ls
-require("mason").setup()
-require("mason-null-ls").setup({
-	automatic_setup = true,
-})
-
-local null_ls = require("null-ls")
-
-null_ls.setup({
-	sources = {
-		null_ls.builtins.formatting.prettier,
-		null_ls.builtins.formatting.stylua,
-		--null_ls.builtins.completion.spell,
-	},
-})
-
 -- NeoTree
 vim.keymap.set("n", "<leader>fs", function()
 	vim.cmd(":Neotree toggle position=left reveal=true")
