@@ -24,3 +24,19 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {
 })
 
 vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<cr>", { desc = "<C-f> tmux-sessionizer" })
+
+-- Range format
+local range_formatting = function()
+	local start_row, _ = unpack(vim.api.nvim_buf_get_mark(0, "<"))
+	local end_row, _ = unpack(vim.api.nvim_buf_get_mark(0, ">"))
+	vim.lsp.buf.format({
+		range = {
+			["start"] = { start_row, 0 },
+			["end"] = { end_row, 0 },
+		},
+		async = true,
+	})
+end
+
+vim.keymap.set("v", "<leader>FF", range_formatting, { desc = "Range Formatting" })
+-- Range format END
