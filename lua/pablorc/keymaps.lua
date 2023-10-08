@@ -28,10 +28,10 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git, { desc = "[G]it [S]tatus" })
 
 -- Open diagnostic in a float window
 -- (i.e: the message is too long for reading it in-line)
-vim.keymap.set("n", "<leader>do", "<cmd>lua vim.diagnostic.open_float()<CR>", {
+vim.keymap.set("n", "<leader>ds", "<cmd>lua vim.diagnostic.open_float()<CR>", {
 	noremap = true,
 	silent = true,
-	desc = "[D]iagnostic [O]pen in float window",
+	desc = "[D]iagnostic [S]how",
 })
 
 -- Undo tree
