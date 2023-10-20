@@ -38,3 +38,5 @@ vim.keymap.set("n", "<leader>ds", "<cmd>lua vim.diagnostic.open_float()<CR>", {
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {
 	desc = "[U]ndotree",
 })
+
+vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<cr>", { desc = "<C-f> tmux-sessionizer" })
