@@ -234,7 +234,7 @@ require("telescope").setup({
     find_files = {
       hidden = true,
       no_ignore = true,
-    }
+    },
   },
   defaults = {
     file_ignore_patterns = { "node_modules", ".git", "yarn.lock" },
@@ -285,7 +285,6 @@ require("nvim-treesitter.configs").setup({
     "typescript",
     "vimdoc",
     "vim",
-    "ruby",
   },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
@@ -411,17 +410,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
     vim.lsp.buf.format()
   end, { desc = "Format current buffer with LSP" })
-
-  -- format on save
-  -- if client.server_capabilities.documentFormattingProvider then
-  --   vim.api.nvim_create_autocmd("BufWritePre", {
-  --     group = vim.api.nvim_create_augroup("Format", { clear = true }),
-  --     buffer = bufnr,
-  --     callback = function()
-  --       vim.lsp.buf.format()
-  --     end,
-  --   })
-  -- end
 end
 
 -- Enable the following language servers
@@ -436,6 +424,7 @@ local servers = {
   -- rust_analyzer = {},
   tsserver = {},
   eslint = {},
+  solargraph = {},
 
   lua_ls = {
     Lua = {
