@@ -32,6 +32,8 @@ return {
         markdown = { prettier },
         react = { prettier },
         scss = { prettier },
+        typescript = { prettier },
+        typescriptreact = { prettier },
         yaml = { prettier },
       },
 
