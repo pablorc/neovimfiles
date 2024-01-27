@@ -2,6 +2,8 @@ local prettier = { "prettierd", "prettier" }
 
 return {
 	"stevearc/conform.nvim",
+	event = { "BufWritePre" },
+	cmd = { "ConformInfo" },
 	opts = {
 		-- Conform will run multiple formatters sequentially
 		-- Use a sub-list to run only the first available formatter
@@ -9,25 +11,24 @@ return {
 		-- { "stylua", "another" }
 		-- - Runs both
 		--
-		-- { "stylua", prettier }
+		-- { "stylua", { "prettierd", "prettier" } }
 		--  - Runs stylua and one of the following two
 		formatters_by_ft = {
 			lua = { "stylua" },
-			-- ruby = { "rubocop" },
 
-			javascript = { prettier },
-			javascriptreact = { prettier },
-			jsx = { prettier },
-			react = { prettier },
 			css = { prettier },
-			scss = { prettier },
-			html = { prettier },
-			json = { prettier },
-			jsonc = { prettier },
-			yaml = { prettier },
-			markdown = { prettier },
 			graphql = { prettier },
 			handlebars = { prettier },
+			html = { prettier },
+			javascript = { prettier },
+			javascriptreact = { prettier },
+			json = { prettier },
+			jsonc = { prettier },
+			jsx = { prettier },
+			markdown = { prettier },
+			react = { prettier },
+			scss = { prettier },
+			yaml = { prettier },
 		},
 
 		format_on_save = {
