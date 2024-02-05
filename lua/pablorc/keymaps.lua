@@ -1,19 +1,3 @@
--- -- null-ls
--- require("mason").setup()
--- require("mason-null-ls").setup({
--- 	automatic_setup = true,
--- })
-
--- local null_ls = require("null-ls")
---
--- null_ls.setup({
--- 	sources = {
--- 		null_ls.builtins.formatting.prettier,
--- 		null_ls.builtins.formatting.stylua,
--- 		--null_ls.builtins.completion.spell,
--- 	},
--- })
-
 -- NeoTree
 vim.keymap.set("n", "<leader>fs", function()
   vim.cmd(":Neotree toggle position=left reveal=true")
@@ -69,3 +53,25 @@ vim.api.nvim_set_keymap(
 vim.api.nvim_set_keymap("n", "<F5>", "]", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<F4>", "[", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "<F4>", "[", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>yf", function()
+  local file = vim.fn.expand("%:t")
+
+  vim.fn.setreg("+", file)
+end, { desc = "[Y]ank [F]ilename" })
+
+vim.keymap.set("n", "<leader>yp", function()
+  local file = vim.fn.expand("%")
+
+  vim.fn.setreg("+", file)
+end, { desc = "[Y]ank [P]ath" })
+
+vim.keymap.set("n", "<leader>ya", function()
+  local file = vim.fn.expand("%")
+  local path = vim.fn.getcwd() .. "/" .. file
+
+  -- Replace $HOME with ~
+  -- path = path:gsub(os.getenv("HOME") or "", "~")
+
+  vim.fn.setreg("+", path)
+end, { desc = "[Y]ank [A]bsolute path" })
