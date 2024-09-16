@@ -244,6 +244,8 @@ require("telescope").setup({
         ["<C-d>"] = false,
       },
     },
+    layout_strategy = "vertical",
+    layout_config = { height = 0.95, prompt_position = "top", mirror = true },
   },
 })
 

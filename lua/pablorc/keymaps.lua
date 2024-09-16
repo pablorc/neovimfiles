@@ -67,11 +67,26 @@ vim.keymap.set("n", "<leader>yp", function()
 end, { desc = "[Y]ank [P]ath" })
 
 vim.keymap.set("n", "<leader>ya", function()
-  local file = vim.fn.expand("%")
-  local path = vim.fn.getcwd() .. "/" .. file
+  local path = vim.fn.expand("%:p")
 
   -- Replace $HOME with ~
   -- path = path:gsub(os.getenv("HOME") or "", "~")
 
   vim.fn.setreg("+", path)
 end, { desc = "[Y]ank [A]bsolute path" })
+
+vim.keymap.set("n", "<leader>ye", function()
+  require("yeet").list_cmd()
+end, { desc = "[Y]eet [E]xecute" })
+
+vim.keymap.set("n", "<leader>yt", function()
+  require("yeet").select_target()
+end, { desc = "[Y]eet Choose [T]arget" })
+
+-- vim.keymap.set("n", "<leader>yo", function()
+--   require("yeet").toggle_post_write()
+-- end, { desc = "[Y]eet [O]n/Off" })
+--
+-- vim.keymap.set("n", "<leader>yl", function()
+--   require("yeet").execute()
+-- end, { desc = "[Y]eet This [L]ine" })
