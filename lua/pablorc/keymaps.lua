@@ -23,7 +23,8 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {
   desc = "[U]ndotree",
 })
 
-vim.keymap.set("n", "<C-f>", ":silent !tmux neww tmux-sessionizer<cr>", { desc = "<C-f> tmux-sessionizer" })
+vim.keymap.set("n", "<C-n>", ":silent !tmux display-popup -E tmux-sessionizer<cr>", { desc = "<C-n> tmux-sessionizer" })
+vim.keymap.set("n", "<C-p>", ":silent !tmux display-popup -E tmux-switch<cr>", { desc = "<C-p> tmux-switch" })
 
 vim.g.diagnostics_active = true
 function _G.toggle_diagnostics()
@@ -75,13 +76,15 @@ vim.keymap.set("n", "<leader>ya", function()
   vim.fn.setreg("+", path)
 end, { desc = "[Y]ank [A]bsolute path" })
 
-vim.keymap.set("n", "<leader>ye", function()
-  require("yeet").list_cmd()
-end, { desc = "[Y]eet [E]xecute" })
+vim.keymap.set("n", "<leader>$", ":silent !tmux display-popup<cr>", { desc = "<leader>$ Open shell on popup" })
 
-vim.keymap.set("n", "<leader>yt", function()
-  require("yeet").select_target()
-end, { desc = "[Y]eet Choose [T]arget" })
+-- vim.keymap.set("n", "<leader>$", function()
+--   require("yeet").list_cmd()
+-- end, { desc = "Yeet execute" })
+--
+-- vim.keymap.set("n", "<leader>yt", function()
+--   require("yeet").select_target()
+-- end, { desc = "[Y]eet Choose [T]arget" })
 
 -- vim.keymap.set("n", "<leader>yo", function()
 --   require("yeet").toggle_post_write()
