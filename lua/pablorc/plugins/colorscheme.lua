@@ -1,9 +1,18 @@
+-- return {
+--   "folke/tokyonight.nvim",
+--   priority = 1000,
+--   lazy = false,
+--   options = {},
+--   config = function()
+--     vim.cmd.colorscheme("tokyonight-storm")
+--   end,
+-- }
+
 return {
-  "folke/tokyonight.nvim",
+  "catppuccin/nvim",
+  name = "catppuccin",
   priority = 1000,
-  lazy = false,
-  options = {},
   config = function()
-    vim.cmd.colorscheme("tokyonight-storm")
+    vim.cmd.colorscheme("catppuccin-mocha")
   end,
 }

@@ -19,6 +19,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         ruby = { "rubocop" },
+        eruby = { "erb_format" },
 
         css = { prettier },
         graphql = { prettier },
@@ -43,7 +44,7 @@ return {
           return
         end
 
-        return { timeout_ms = 500, lsp_fallback = true, async = false }
+        return { timeout_ms = 1000, lsp_fallback = true, async = false }
       end,
     })
 

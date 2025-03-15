@@ -23,8 +23,8 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle, {
   desc = "[U]ndotree",
 })
 
-vim.keymap.set("n", "<C-n>", ":silent !tmux display-popup -E tmux-sessionizer<cr>", { desc = "<C-n> tmux-sessionizer" })
-vim.keymap.set("n", "<C-p>", ":silent !tmux display-popup -E tmux-switch<cr>", { desc = "<C-p> tmux-switch" })
+vim.keymap.set("n", "<C-p>", ":silent !tmux display-popup -E tmux-sessionizer<cr>", { desc = "<C-n> tmux-sessionizer" })
+-- vim.keymap.set("n", "<C-s-p>", ":silent !tmux display-popup -E tmux-switch<cr>", { desc = "<C-p> tmux-switch" })
 
 vim.g.diagnostics_active = true
 function _G.toggle_diagnostics()
