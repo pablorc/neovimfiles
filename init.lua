@@ -237,7 +237,7 @@ require("telescope").setup({
     },
   },
   defaults = {
-    file_ignore_patterns = { "node_modules", ".git", "yarn.lock" },
+    file_ignore_patterns = { "node_modules", ".git", "yarn.lock", "env" },
     mappings = {
       i = {
         ["<C-u>"] = false,

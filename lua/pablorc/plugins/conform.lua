@@ -19,6 +19,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         ruby = { "rubocop" },
+        python = { "black", "isort" },
 
         css = { prettier },
         graphql = { prettier },
