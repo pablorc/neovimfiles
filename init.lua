@@ -360,7 +360,7 @@ if not status then
 end
 
 -- TypeScript
-nvim_lsp.tsserver.setup({
+nvim_lsp.ts_ls.setup({
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
   on_attach = function(client)
@@ -429,8 +429,8 @@ local servers = {
   -- gopls = {},
   -- pyright = {},
   -- rust_analyzer = {},
-  tsserver = {},
-  -- eslint_d = {},
+  ts_ls = {},
+  eslint = {},
   -- solargraph = {},
 
   lua_ls = {
