@@ -1,5 +1,3 @@
-local prettier = { "prettierd", "prettier" }
-
 return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },
@@ -21,21 +19,21 @@ return {
         ruby = { "rubocop" },
         eruby = { "erb_format" },
 
-        css = { prettier },
-        graphql = { prettier },
-        handlebars = { prettier },
-        html = { prettier },
-        javascript = { prettier },
-        javascriptreact = { prettier },
-        json = { prettier },
-        jsonc = { prettier },
-        jsx = { prettier },
-        markdown = { prettier },
-        react = { prettier },
-        scss = { prettier },
-        typescript = { prettier },
-        typescriptreact = { prettier },
-        yaml = { prettier },
+        css = { "prettierd", "prettier" },
+        graphql = { "prettierd", "prettier" },
+        handlebars = { "prettierd", "prettier" },
+        html = { "prettierd", "prettier" },
+        javascript = { "prettierd", "prettier" },
+        javascriptreact = { "prettierd", "prettier" },
+        json = { "prettierd", "prettier" },
+        jsonc = { "prettierd", "prettier" },
+        jsx = { "prettierd", "prettier" },
+        markdown = { "prettierd", "prettier" },
+        react = { "prettierd", "prettier" },
+        scss = { "prettierd", "prettier" },
+        typescript = { "prettierd", "prettier" },
+        typescriptreact = { "prettierd", "prettier" },
+        yaml = { "prettierd", "prettier" },
       },
 
       format_on_save = function(bufnr)
