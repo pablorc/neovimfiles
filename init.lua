@@ -242,6 +242,7 @@ require("telescope").setup({
       i = {
         ["<C-u>"] = false,
         ["<C-d>"] = false,
+        ['<c-d>'] = require('telescope.actions').delete_buffer
       },
     },
     layout_strategy = "vertical",
@@ -363,9 +364,9 @@ end
 nvim_lsp.ts_ls.setup({
   filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-  end,
+  -- on_attach = function(client)
+  -- client.resolved_capabilities.document_formatting = false
+  -- end,
 })
 
 nvim_lsp.solargraph.setup({
@@ -389,13 +390,14 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-  nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+  nmap("<leader>rn", vim.lsp.buf.rename(), "[R]e[n]ame")
+  nmap("<leader>ca", vim.lsp.buf.code_action(), "[C]ode [A]ction")
 
-  nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+  nmap("gd", vim.lsp.buf.definition(), "[G]oto [D]efinition")
+  nmap("<C-d>", vim.lsp.buf.definition(), "<C-d> Go to definition")
   nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-  nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
-  nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
+  nmap("gI", vim.lsp.buf.implementation(), "[G]oto [I]mplementation")
+  nmap("<leader>D", vim.lsp.buf.type_definition(), "Type [D]efinition")
   nmap("<leader>ssd", require("telescope.builtin").lsp_document_symbols, "[S]ymbols [S]how in [D]ocument")
   nmap("<leader>ssw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[S]ymbols [S]how in [W]orkspace")
 
@@ -431,7 +433,8 @@ local servers = {
   -- rust_analyzer = {},
   ts_ls = {},
   eslint = {},
-  solargraph = {},
+  -- solargraph = {},
+  copilot = {},
 
   lua_ls = {
     Lua = {
@@ -454,8 +457,7 @@ local mason_lspconfig = require("mason-lspconfig")
 mason_lspconfig.setup({
   ensure_installed = vim.tbl_keys(servers),
 })
-
-mason_lspconfig.setup_handlers({
+mason_lspconfig.setup({
   function(server_name)
     require("lspconfig")[server_name].setup({
       capabilities = capabilities,

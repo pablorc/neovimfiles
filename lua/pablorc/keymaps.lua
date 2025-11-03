@@ -94,4 +94,4 @@ vim.keymap.set("n", "<leader>$", ":silent !tmux display-popup<cr>", { desc = "<l
 --   require("yeet").execute()
 -- end, { desc = "[Y]eet This [L]ine" })
 
-vim.keymap.set("n", "<leader>eu", ":silent !setxkbmap eu<cr>", { desc = "Set keyboard layout to [e][u]" })
+-- vim.keymap.set("n", "<leader>eu", ":silent !setxkbmap eu<cr>", { desc = "Set keyboard layout to [e][u]" })
