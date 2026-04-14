@@ -157,14 +157,14 @@ require("lazy").setup({
           "cpp",
           "javascript",
           "go",
-          "lua",
           "python",
           "ruby",
           "rust",
           "tsx",
           "typescript",
-          "vimdoc",
-          "vim",
+          -- lua, vim, vimdoc: omitted — Neovim 0.12 bundles these parsers and
+          -- they must match its own runtime queries; installing via nvim-treesitter
+          -- causes a version mismatch (e.g. missing "operator" field).
         },
         auto_install = false,
       })
@@ -357,14 +357,14 @@ local on_attach = function(client, bufnr)
     vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
   end
 
-  nmap("<leader>rn", vim.lsp.buf.rename(), "[R]e[n]ame")
-  nmap("<leader>ca", vim.lsp.buf.code_action(), "[C]ode [A]ction")
+  nmap("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+  nmap("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-  nmap("gd", vim.lsp.buf.definition(), "[G]oto [D]efinition")
-  nmap("<C-d>", vim.lsp.buf.definition(), "<C-d> Go to definition")
+  nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
+  nmap("<C-d>", vim.lsp.buf.definition, "<C-d> Go to definition")
   nmap("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-  nmap("gI", vim.lsp.buf.implementation(), "[G]oto [I]mplementation")
-  nmap("<leader>D", vim.lsp.buf.type_definition(), "Type [D]efinition")
+  nmap("gI", vim.lsp.buf.implementation, "[G]oto [I]mplementation")
+  nmap("<leader>D", vim.lsp.buf.type_definition, "Type [D]efinition")
   nmap("<leader>ssd", require("telescope.builtin").lsp_document_symbols, "[S]ymbols [S]how in [D]ocument")
   nmap("<leader>ssw", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[S]ymbols [S]how in [W]orkspace")
 
