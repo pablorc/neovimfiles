@@ -1,6 +1,11 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- nvim 0.12 removed ft_to_lang; telescope still calls it
+if vim.treesitter.language and not vim.treesitter.language.ft_to_lang then
+  vim.treesitter.language.ft_to_lang = vim.treesitter.language.get_lang
+end
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -301,6 +306,7 @@ require("telescope").setup({
     },
   },
   defaults = {
+    preview = { treesitter = false },
     file_ignore_patterns = { "node_modules", ".git", "yarn.lock" },
     mappings = {
       i = {
